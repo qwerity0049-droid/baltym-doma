@@ -12,8 +12,9 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Lemon Tuesday';src:url('fonts/lemon-tuesday.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
 :root{
   --ink:#372b11;        /* тёмный дуб */
   --pine:#70815a;       /* хвоя */
@@ -23,7 +24,8 @@
   --paper:#ede9de;
   --ochre:#9b6922;      /* охра */
   --leaf:#e8ebcf;
-  --serif:'Prata',serif;
+  --serif:'Balsamiq Sans',system-ui,sans-serif;
+  --script:'Lemon Tuesday',cursive;
   --sans:'Golos Text',system-ui,sans-serif;
   --r:20px;
 }
@@ -32,18 +34,16 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;line-height:1.18}
-h2{font-size:clamp(28px,5.4vw,46px);letter-spacing:-.01em}
-h3{font-size:clamp(21px,3.4vw,27px)}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:700;line-height:1.18}
+h2{font-size:clamp(24px,4.6vw,40px);letter-spacing:.02em;text-transform:uppercase}
+h3{font-size:clamp(20px,3.2vw,25px)}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 section{padding:72px 0}
 @media(min-width:900px){section{padding:104px 0}}
 
-/* метка секции — как нумерация в референсе */
-.tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:18px}
-.tag::before{content:attr(data-n);font-family:var(--serif);font-size:15px;color:var(--moss);border:1px solid var(--moss);border-radius:50%;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center}
-.dark .tag{color:var(--leaf)}
-.dark .tag::before{color:var(--leaf);border-color:rgba(232,235,207,.5)}
+/* метка секции — рукописная, как в референсе */
+.tag{display:block;font-family:var(--script);font-size:clamp(24px,3.4vw,30px);color:var(--moss);margin-bottom:10px;transform:rotate(-1.2deg)}
+.dark .tag{color:var(--moss)}
 
 /* появление при скролле */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
@@ -64,30 +64,31 @@ section{padding:72px 0}
 header{position:fixed;inset:0 0 auto;z-index:60;transition:background .35s,box-shadow .35s}
 header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1160px;margin:0 auto}
 header.scrolled{background:rgba(250,242,226,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(55,43,17,.08)}
-.logo{font-family:var(--serif);font-size:19px;color:#fff;text-decoration:none;letter-spacing:.02em;transition:color .35s}
-.logo span{color:var(--moss)}
-header.scrolled .logo{color:var(--ink)}
+.logo{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--pine)}
 nav.menu{display:none;gap:26px}
-nav.menu a{text-decoration:none;font-size:14px;font-weight:500;color:#fff;opacity:.9;transition:color .35s,opacity .2s}
+nav.menu a{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink);opacity:.85;transition:opacity .2s}
 nav.menu a:hover{opacity:1}
-header.scrolled nav.menu a{color:var(--ink)}
 .head-cta{display:none}
 @media(min-width:860px){nav.menu{display:flex}.head-cta{display:inline-flex;padding:11px 22px;font-size:14px}}
 
-/* герой */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,24,8,.42) 0%,rgba(30,24,8,.18) 40%,rgba(30,24,8,.78) 100%)}
-.hero .wrap{position:relative;z-index:2;padding-bottom:56px;width:100%}
-.hero .up{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hero .up::before{content:'';width:34px;height:1px;background:var(--moss)}
-@media(min-width:700px){.hero .up{font-size:13px;letter-spacing:.22em}}
-.hero h1{font-size:clamp(34px,7.4vw,72px);max-width:15ch;margin-bottom:18px;text-wrap:balance}
-.hero p.sub{max-width:52ch;font-size:clamp(16px,2.4vw,19px);color:rgba(255,255,255,.88);margin-bottom:30px}
-.hero .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
-.hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;border-top:1px solid rgba(255,255,255,.25);padding-top:22px}
-.hero .stats b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,4vw,32px);display:block}
-.hero .stats span{font-size:13px;color:rgba(255,255,255,.75)}
+/* герой — светлый, фото в рамке */
+.hero{background:var(--cream);padding:104px 0 44px;color:var(--ink)}
+@media(min-width:920px){.hero{padding:150px 0 70px}}
+.hero-grid{display:grid;gap:34px;align-items:center}
+@media(min-width:920px){.hero-grid{grid-template-columns:11fr 9fr;gap:58px}}
+.hero .up{font-family:var(--script);font-size:clamp(24px,3.6vw,30px);color:var(--moss);margin-bottom:12px;transform:rotate(-1.2deg)}
+.hero h1{font-size:clamp(28px,5.6vw,52px);margin-bottom:18px;text-wrap:balance;text-transform:uppercase;letter-spacing:.01em}
+.hero p.sub{max-width:52ch;font-size:clamp(16px,2.4vw,19px);color:#5a4b28;margin-bottom:28px}
+.hero .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;border-top:1px solid rgba(55,43,17,.16);padding-top:22px}
+.hero .stats b{font-family:var(--serif);font-weight:700;font-size:clamp(20px,3.4vw,28px);display:block}
+.hero .stats span{font-size:13px;color:#6b5a33}
+.hero-ph{position:relative;max-width:520px;margin:0 auto;width:100%}
+.hero-ph img{width:100%;border-radius:30px;box-shadow:0 26px 60px rgba(55,43,17,.24);transform:rotate(1.4deg)}
+.hero-ph .note{font-family:var(--script);font-size:clamp(20px,2.8vw,25px);color:var(--pine);text-align:center;margin-top:18px;transform:rotate(-2deg)}
+.btn-line{background:transparent;color:var(--ink);border:1.5px solid rgba(55,43,17,.4)}
+.btn-line:hover{background:var(--paper);transform:translateY(-2px)}
 
 /* боли */
 .dark{background:var(--ink);color:var(--cream)}
@@ -225,19 +226,24 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
 
 <!-- ГЕРОЙ -->
 <div class="hero" id="top">
-  <img class="bg" src="img/hero.jpg" alt="Вечерний бассейн с подсветкой у дома на Балтыме" fetchpriority="high">
-  <div class="wrap">
-    <div class="up">озеро Балтым · 15 км от Екатеринбурга</div>
-    <h1>Свой дом у озера. Баня, чан — и никого лишнего</h1>
-    <p class="sub">Три коттеджа посуточно в Новом Балтыме и Среднеуральске. Приезжаете — баня ваша, двор ваш, вечер ваш. Заселение без встреч, можно с детьми и питомцами.</p>
-    <div class="btns">
-      <a class="btn btn-solid" href="#doma">Выбрать дом</a>
-      <a class="btn btn-ghost" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Смотреть на Авито</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="up">озеро Балтым · 15 минут от Екатеринбурга</div>
+      <h1>Свой дом у озера — баня, чан и никого лишнего</h1>
+      <p class="sub">Три коттеджа посуточно в Новом Балтыме и Среднеуральске. Приезжаете — баня ваша, двор ваш, вечер ваш. Заселение без встреч, можно с детьми и питомцами.</p>
+      <div class="btns">
+        <a class="btn btn-solid" href="#doma">Выбрать дом</a>
+        <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Написать в Telegram</a>
+      </div>
+      <div class="stats">
+        <div><b>3 дома</b><span>от компании на двоих до 18 гостей</span></div>
+        <div><b>Весь год</b><span>тёплые дома, зимой топим баню</span></div>
+        <div><b>25 минут</b><span>на машине от Екатеринбурга</span></div>
+      </div>
     </div>
-    <div class="stats">
-      <div><b>3 дома</b><span>от компании на двоих до 18 гостей</span></div>
-      <div><b>Весь год</b><span>тёплые дома, зимой топим баню</span></div>
-      <div><b>25 минут</b><span>на машине от Екатеринбурга</span></div>
+    <div class="hero-ph">
+      <img src="img/o1.jpg" alt="Вечерний бассейн с подсветкой у дома на Балтыме" fetchpriority="high">
+      <div class="note">вечер у бассейна в доме «Озёрный»</div>
     </div>
   </div>
 </div>
@@ -294,7 +300,10 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
           <li class="plus">+ чан с тёплой водой</li><li class="plus">+ баня на дровах</li><li class="plus">+ летний бассейн</li>
         </ul>
         <div class="times"><span>Заезд <b>с 16:00</b></span><span>Выезд <b>до 13:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
-        <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+          <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Забронировать в Telegram</a>
+        </div>
       </div>
     </div>
 
@@ -326,7 +335,10 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
           <li class="plus">+ чан</li><li class="plus">+ баня</li><li class="plus">+ всесезонный бассейн</li>
         </ul>
         <div class="times"><span>Заезд <b>с 14:00</b></span><span>Выезд <b>до 12:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
-        <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+          <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Забронировать в Telegram</a>
+        </div>
       </div>
     </div>
 
@@ -358,7 +370,10 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
           <li class="plus">+ купель</li><li class="plus">+ летний бассейн</li>
         </ul>
         <div class="times"><span>Заезд <b>с 17:00</b></span><span>Выезд <b>до 15:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
-        <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+          <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Забронировать в Telegram</a>
+        </div>
       </div>
     </div>
 
@@ -431,7 +446,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
     <div class="faq reveal">
       <details open>
         <summary>Сколько стоят сутки?</summary>
-        <div class="a">Цена зависит от дома, дат и числа гостей — в будни ощутимо дешевле, чем в выходные и праздники. Точную цену на ваши даты смотрите на нашей странице на Авито или уточняйте по телефону. Залог за любой дом — 5 000 ₽, возвращается при выезде.</div>
+        <div class="a">Цена зависит от дома, дат и числа гостей — в будни ощутимо дешевле, чем в выходные и праздники. Точную цену на ваши даты смотрите на нашей странице на Авито или спрашивайте в Telegram и по телефону +7 963 443-98-97. Залог за любой дом — 5 000 ₽, возвращается при выезде.</div>
       </details>
       <details>
         <summary>Баня и чан входят в стоимость?</summary>
@@ -469,7 +484,8 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
     <p class="reveal">Полчаса от города — и вы у озера. Напишите, какие даты и сколько вас: подберём дом и затопим баню к приезду.</p>
     <div class="btns reveal">
       <a class="btn btn-solid" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Забронировать на Авито</a>
-      <a class="btn btn-ghost" href="tel:+79000000000">Позвонить</a>
+      <a class="btn btn-ghost" href="https://t.me/+79634439897" target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="btn btn-ghost" href="tel:+79634439897">+7 963 443-98-97</a>
     </div>
   </div>
 </section>
@@ -491,7 +507,8 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
       <div>
         <b>Связь</b>
         <ul>
-          <li><a href="tel:+79000000000">Позвонить хозяйке</a></li>
+          <li><a href="tel:+79634439897">+7 963 443-98-97</a></li>
+          <li><a href="https://t.me/+79634439897" target="_blank" rel="noopener">Написать в Telegram ↗</a></li>
           <li><a href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Мы на Авито ↗</a></li>
         </ul>
       </div>
@@ -502,8 +519,8 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
 
 <!-- мобильная панель -->
 <div class="callbar">
-  <a class="btn btn-ink" href="tel:+79000000000">📞 Позвонить</a>
-  <a class="btn btn-solid" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Забронировать</a>
+  <a class="btn btn-ink" href="tel:+79634439897">📞 Позвонить</a>
+  <a class="btn btn-solid" href="https://t.me/+79634439897" target="_blank" rel="noopener">✈️ Telegram</a>
 </div>
 
 <!-- лайтбокс -->
