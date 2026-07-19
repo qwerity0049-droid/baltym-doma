@@ -95,9 +95,15 @@ nav.menu a:hover{opacity:1}
 .pains{display:grid;gap:14px;margin-top:40px}
 @media(min-width:760px){.pains{grid-template-columns:repeat(2,1fr);gap:18px}}
 .pain{background:rgba(250,242,226,.06);border:1px solid rgba(250,242,226,.14);border-radius:var(--r);padding:26px}
-.pain .loc{font-family:var(--script);font-size:22px;color:var(--moss);display:block;margin-bottom:4px;transform:rotate(-1deg)}
-.pain b{font-family:var(--serif);font-weight:700;font-size:18px;display:block;margin-bottom:8px;color:#fff}
-.pain p{color:rgba(250,242,226,.75);font-size:15px}
+.pain .loc{font-family:var(--script);font-size:22px;color:rgba(250,242,226,.55);display:block;margin-bottom:10px;transform:rotate(-1deg)}
+.pain .minus{display:flex;gap:12px;align-items:flex-start;opacity:.72}
+.pain .minus .ic{color:#d98873;font-weight:700;font-size:17px;line-height:1.4;flex-shrink:0}
+.pain b{font-family:var(--serif);font-weight:700;font-size:17.5px;display:block;margin-bottom:6px;color:#f0e6d2;text-decoration:line-through;text-decoration-color:rgba(217,136,115,.75);text-decoration-thickness:2px}
+.pain .minus p{color:rgba(250,242,226,.66);font-size:14.5px}
+.pain .ours{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding-top:14px;border-top:1px dashed rgba(250,242,226,.22)}
+.pain .ours .ic{color:var(--moss);font-weight:700;font-size:17px;line-height:1.5;flex-shrink:0}
+.pain .ours p{color:#fff;font-size:15.5px;font-weight:500}
+.pain .ours em{font-style:normal;font-family:var(--script);color:var(--moss);font-size:21px;margin-right:4px}
 .dark h2 em{font-style:normal;color:var(--moss)}
 .answer{margin-top:44px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--moss);padding-left:20px;max-width:640px}
 .answer p{font-size:clamp(17px,2.6vw,21px);font-family:var(--serif);color:#fff}
@@ -127,8 +133,10 @@ nav.menu a:hover{opacity:1}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .chips li{list-style:none;background:var(--paper);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:500;color:#544625}
 .chips li.plus{background:var(--leaf);color:#485c2b}
-.house .times{font-size:14px;color:#6b5a33;margin-bottom:24px;display:flex;gap:22px;flex-wrap:wrap}
+.house .times{font-size:14px;color:#6b5a33;margin-bottom:20px;display:flex;gap:22px;flex-wrap:wrap}
 .house .times b{color:var(--ink);font-weight:600}
+.price{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.6vw,30px);color:var(--ink);margin-bottom:20px}
+.price span{font-family:var(--sans);font-weight:400;font-size:14.5px;color:#6b5a33;margin-left:6px}
 .extras{background:var(--leaf);border-radius:16px;padding:20px 22px;margin-bottom:22px}
 .extras>b{font-family:var(--serif);font-weight:700;font-size:16px;display:block;margin-bottom:12px;color:#3f5323}
 .extras ul{list-style:none;margin-bottom:4px}
@@ -159,6 +167,10 @@ nav.menu a:hover{opacity:1}
 .rev .who b{font-size:14.5px;display:block}
 .rev .who span{font-size:12.5px;color:#8a7748}
 .avito-note{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:#6b5a33;background:var(--paper);padding:9px 16px;border-radius:999px}
+.rev-nav{display:none;gap:10px}
+@media(min-width:860px){.rev-nav{display:flex}}
+.rev-nav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--pine);background:transparent;color:var(--pine);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.rev-nav button:hover{background:var(--pine);color:#fff}
 
 /* о хозяйке */
 .host{display:grid;gap:34px;align-items:center}
@@ -259,16 +271,29 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
 <!-- БОЛИ -->
 <section class="dark" id="pochemu">
   <div class="wrap">
-    <div class="tag reveal">как обычно проходят «выходные на природе»</div>
-    <h2 class="reveal">Отдых, который вечно <em>не складывается</em></h2>
+    <div class="tag reveal">зачем снимать дом целиком</div>
+    <h2 class="reveal">Один дом — вместо турбазы, кафе и&nbsp;сауны <em>по часам</em></h2>
     <div class="pains">
-      <div class="pain reveal"><span class="loc">на турбазе</span><b>Соседи за стенкой</b><p>Чужая музыка до утра, очередь в мангальную зону, баня по записи на 40 минут.</p></div>
-      <div class="pain reveal"><span class="loc">в квартире</span><b>Компанию не позвать</b><p>Тесно, танцевать негде, а соседи снизу стучат по батарее уже в десять вечера.</p></div>
-      <div class="pain reveal"><span class="loc">в кафе</span><b>Вечер по счётчику</b><p>Только сели, только распелись под гитару — «мы закрываемся, с вас счёт».</p></div>
-      <div class="pain reveal"><span class="loc">в сауне у дома</span><b>Не пар, а спешка</b><p>Час пролетел — освобождайте. Какие уж тут веники, чан и неспешные разговоры.</p></div>
-    </div>
-    <div class="answer reveal">
-      <p>Свой дом на сутки решает всё разом: участок только ваш, баня — ваша, музыка — ваша. Мангал без очереди, караоке без соседей за стенкой.</p>
+      <div class="pain reveal">
+        <span class="loc">на турбазе</span>
+        <div class="minus"><span class="ic">✕</span><div><b>Соседи за стенкой</b><p>Чужая музыка до утра, очередь в мангальную зону, баня по записи на 40 минут.</p></div></div>
+        <div class="ours"><span class="ic">✓</span><p><em>у нас</em> весь дом и двор — только вашей компании, до 18 гостей</p></div>
+      </div>
+      <div class="pain reveal">
+        <span class="loc">в квартире</span>
+        <div class="minus"><span class="ic">✕</span><div><b>Компанию не позвать</b><p>Тесно, танцевать негде, а соседи снизу стучат по батарее уже в десять вечера.</p></div></div>
+        <div class="ours"><span class="ic">✓</span><p><em>у нас</em> караоке, музыка и танцы — стучать по батарее некому</p></div>
+      </div>
+      <div class="pain reveal">
+        <span class="loc">в кафе</span>
+        <div class="minus"><span class="ic">✕</span><div><b>Вечер по счётчику</b><p>Только сели, только распелись под гитару — «мы закрываемся, с вас счёт».</p></div></div>
+        <div class="ours"><span class="ic">✓</span><p><em>у нас</em> дом ваш на сутки — сидите у мангала хоть до рассвета</p></div>
+      </div>
+      <div class="pain reveal">
+        <span class="loc">в сауне у дома</span>
+        <div class="minus"><span class="ic">✕</span><div><b>Не пар, а спешка</b><p>Час пролетел — освобождайте. Какие уж тут веники и неспешные разговоры.</p></div></div>
+        <div class="ours"><span class="ic">✓</span><p><em>у нас</em> баня и чан прямо во дворе — натопим к вашему приезду</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -317,6 +342,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
           <p>Сауна в доме — бесплатно и без ограничений по времени.</p>
         </div>
         <div class="times"><span>Заезд <b>с 16:00</b></span><span>Выезд <b>до 13:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
+        <div class="price">от 10 000 ₽<span>за дом в сутки</span></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
           <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Забронировать в Telegram</a>
@@ -360,6 +386,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
           </ul>
         </div>
         <div class="times"><span>Заезд <b>с 14:00</b></span><span>Выезд <b>до 12:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
+        <div class="price">от 10 000 ₽<span>за дом в сутки</span></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
           <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Забронировать в Telegram</a>
@@ -398,6 +425,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
           <p style="margin-top:0">Оплачиваются отдельно и требуют времени на подготовку — скажите при брони, к какому часу нагреть, а цену на ваши даты уточнит хозяйка.</p>
         </div>
         <div class="times"><span>Заезд <b>с 17:00</b></span><span>Выезд <b>до 15:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
+        <div class="price">от 15 000 ₽<span>за дом в сутки</span></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
           <a class="btn btn-line" href="https://t.me/+79634439897" target="_blank" rel="noopener">Забронировать в Telegram</a>
@@ -435,6 +463,10 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
         <h2 class="reveal">Отзывы с Авито — как есть</h2>
       </div>
       <span class="avito-note reveal">✓ Профиль «Жильё проверено» на Авито</span>
+      <div class="rev-nav reveal">
+        <button id="rev-prev" aria-label="Предыдущие отзывы">‹</button>
+        <button id="rev-next" aria-label="Следующие отзывы">›</button>
+      </div>
     </div>
   </div>
   <div class="wrap">
@@ -475,7 +507,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
     <div class="faq reveal">
       <details open>
         <summary>Сколько стоят сутки?</summary>
-        <div class="a">Цена зависит от дома, дат и числа гостей — в будни ощутимо дешевле, чем в выходные и праздники. Точную цену на ваши даты смотрите на нашей странице на Авито или спрашивайте в Telegram и по телефону +7 963 443-98-97. Залог за любой дом — 5 000 ₽, возвращается при выезде.</div>
+        <div class="a">«Озёрный» и «Каминный» — от 10 000 ₽ за сутки, «Лесная усадьба» — от 15 000 ₽. В выходные и праздники дороже, точную цену на ваши даты смотрите на Авито или спрашивайте в Telegram и по телефону +7 963 443-98-97. Залог за любой дом — 5 000 ₽, возвращается при выезде.</div>
       </details>
       <details>
         <summary>Баня и чан входят в стоимость?</summary>
@@ -641,6 +673,12 @@ faqs.forEach(d => d.addEventListener('toggle', () => {
 }));
 
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+// ---- стрелки отзывов на десктопе ----
+const revScroll = document.querySelector('.rev-scroll');
+const revStep = () => (revScroll.querySelector('.rev').getBoundingClientRect().width + 16);
+document.getElementById('rev-prev').addEventListener('click', () => revScroll.scrollBy({ left: -revStep(), behavior: 'smooth' }));
+document.getElementById('rev-next').addEventListener('click', () => revScroll.scrollBy({ left: revStep(), behavior: 'smooth' }));
 
 // ленивые изображения вне первого экрана
 document.querySelectorAll('.house img, .thumbs img').forEach(i => i.loading = 'lazy');
