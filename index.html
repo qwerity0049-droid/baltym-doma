@@ -95,7 +95,8 @@ nav.menu a:hover{opacity:1}
 .pains{display:grid;gap:14px;margin-top:40px}
 @media(min-width:760px){.pains{grid-template-columns:repeat(2,1fr);gap:18px}}
 .pain{background:rgba(250,242,226,.06);border:1px solid rgba(250,242,226,.14);border-radius:var(--r);padding:26px}
-.pain b{font-family:var(--serif);font-weight:400;font-size:19px;display:block;margin-bottom:8px;color:#fff}
+.pain .loc{font-family:var(--script);font-size:22px;color:var(--moss);display:block;margin-bottom:4px;transform:rotate(-1deg)}
+.pain b{font-family:var(--serif);font-weight:700;font-size:18px;display:block;margin-bottom:8px;color:#fff}
 .pain p{color:rgba(250,242,226,.75);font-size:15px}
 .dark h2 em{font-style:normal;color:var(--moss)}
 .answer{margin-top:44px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--moss);padding-left:20px;max-width:640px}
@@ -128,6 +129,13 @@ nav.menu a:hover{opacity:1}
 .chips li.plus{background:var(--leaf);color:#485c2b}
 .house .times{font-size:14px;color:#6b5a33;margin-bottom:24px;display:flex;gap:22px;flex-wrap:wrap}
 .house .times b{color:var(--ink);font-weight:600}
+.extras{background:var(--leaf);border-radius:16px;padding:20px 22px;margin-bottom:22px}
+.extras>b{font-family:var(--serif);font-weight:700;font-size:16px;display:block;margin-bottom:12px;color:#3f5323}
+.extras ul{list-style:none;margin-bottom:4px}
+.extras li{display:flex;align-items:baseline;gap:10px;font-size:14.5px;color:#42501f;padding:4px 0}
+.extras li i{flex:1;border-bottom:1px dotted rgba(63,83,35,.4);min-width:20px}
+.extras li em{font-style:normal;font-weight:600;white-space:nowrap}
+.extras p{font-size:13.5px;color:#5c6b38;margin-top:8px}
 
 /* преимущества */
 .grid-adv{display:grid;gap:14px;margin-top:44px}
@@ -157,8 +165,8 @@ nav.menu a:hover{opacity:1}
 @media(min-width:880px){.host{grid-template-columns:5fr 6fr;gap:64px}}
 .host .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
 .host .ph img{width:100%;height:100%;object-fit:cover}
-.host blockquote{font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.5;margin:22px 0;color:#fff}
-.host .sig{color:var(--leaf);font-size:14px}
+.host .host-p{font-size:clamp(16px,2.4vw,18.5px);line-height:1.65;margin-top:18px;color:rgba(250,242,226,.92)}
+.host .btn{margin-top:26px}
 
 /* faq */
 .faq{max-width:760px;margin:40px auto 0}
@@ -251,16 +259,16 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
 <!-- БОЛИ -->
 <section class="dark" id="pochemu">
   <div class="wrap">
-    <div class="tag reveal" data-n="01">почему сюда</div>
+    <div class="tag reveal">как обычно проходят «выходные на природе»</div>
     <h2 class="reveal">Отдых, который вечно <em>не складывается</em></h2>
     <div class="pains">
-      <div class="pain reveal"><b>На базе отдыха — соседи за стенкой</b><p>Чужая музыка до утра, очередь в мангальную зону, баня по записи на 40 минут.</p></div>
-      <div class="pain reveal"><b>Дома собраться негде</b><p>Квартира маленькая, соседи снизу стучат по батарее уже в десять вечера.</p></div>
-      <div class="pain reveal"><b>Кафе закрывается — разговоры нет</b><p>Только сели, только распелись под гитару — «мы закрываемся, с вас счёт».</p></div>
-      <div class="pain reveal"><b>Хочется в настоящую баню</b><p>Не в сауну фитнес-клуба на час, а с паром, вениками и прыжком в прохладный бассейн.</p></div>
+      <div class="pain reveal"><span class="loc">на турбазе</span><b>Соседи за стенкой</b><p>Чужая музыка до утра, очередь в мангальную зону, баня по записи на 40 минут.</p></div>
+      <div class="pain reveal"><span class="loc">в квартире</span><b>Компанию не позвать</b><p>Тесно, танцевать негде, а соседи снизу стучат по батарее уже в десять вечера.</p></div>
+      <div class="pain reveal"><span class="loc">в кафе</span><b>Вечер по счётчику</b><p>Только сели, только распелись под гитару — «мы закрываемся, с вас счёт».</p></div>
+      <div class="pain reveal"><span class="loc">в сауне у дома</span><b>Не пар, а спешка</b><p>Час пролетел — освобождайте. Какие уж тут веники, чан и неспешные разговоры.</p></div>
     </div>
     <div class="answer reveal">
-      <p>Поэтому мы сдаём дома целиком: ворота закрыли — и до 22:00 участок только ваш. Баня, чан, мангал, караоке — без очередей и посторонних.</p>
+      <p>Свой дом на сутки решает всё разом: участок только ваш, баня — ваша, музыка — ваша. Мангал без очереди, караоке без соседей за стенкой.</p>
     </div>
   </div>
 </section>
@@ -297,8 +305,17 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
         </div>
         <ul class="chips">
           <li>Сауна в доме</li><li>Терраса с гирляндами</li><li>Настольный бильярд</li><li>Караоке</li><li>Фотозона</li><li>Мангальная зона</li><li>Детская кроватка</li><li>Пандус, один этаж</li>
-          <li class="plus">+ чан с тёплой водой</li><li class="plus">+ баня на дровах</li><li class="plus">+ летний бассейн</li>
         </ul>
+        <div class="extras">
+          <b>Баня и чан — топим к вашему приезду</b>
+          <ul>
+            <li><span>Русская баня на дровах</span><i></i><em>6 000 ₽ · 3 ч</em></li>
+            <li><span>Банный чан</span><i></i><em>5 000 ₽ · 3 ч</em></li>
+            <li><span>Летний бассейн</span><i></i><em>1 500 ₽ · 3 ч</em></li>
+            <li><span>Услуги парильщика</span><i></i><em>1 500 ₽ · 3 ч</em></li>
+          </ul>
+          <p>Сауна в доме — бесплатно и без ограничений по времени.</p>
+        </div>
         <div class="times"><span>Заезд <b>с 16:00</b></span><span>Выезд <b>до 13:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
@@ -332,8 +349,16 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
         </div>
         <ul class="chips">
           <li>Камин</li><li>Тёплый пол</li><li>Кровати с балдахинами</li><li>Стиральная машина</li><li>Караоке</li><li>Мангал, решётка, шампуры</li><li>Сад во дворе</li>
-          <li class="plus">+ чан</li><li class="plus">+ баня</li><li class="plus">+ всесезонный бассейн</li>
         </ul>
+        <div class="extras">
+          <b>Баня и чан — топим к вашему приезду</b>
+          <ul>
+            <li><span>Баня на дровах</span><i></i><em>6 000 ₽ · 3 ч</em></li>
+            <li><span>Банный чан</span><i></i><em>5 000 ₽ · 3 ч</em></li>
+            <li><span>Бассейн (работает и зимой)</span><i></i><em>1 500 ₽ · 3 ч</em></li>
+            <li><span>Услуги парильщика</span><i></i><em>1 500 ₽ · 3 ч</em></li>
+          </ul>
+        </div>
         <div class="times"><span>Заезд <b>с 14:00</b></span><span>Выезд <b>до 12:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
@@ -367,8 +392,11 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
         </div>
         <ul class="chips">
           <li>Русская баня</li><li>Бильярд</li><li>Теннис</li><li>Кикер</li><li>Детская зона</li><li>Беседка с мангалом</li><li>Посудомоечная машина</li><li>2 санузла</li>
-          <li class="plus">+ купель</li><li class="plus">+ летний бассейн</li>
         </ul>
+        <div class="extras">
+          <b>Купель и бассейн — готовим к приезду</b>
+          <p style="margin-top:0">Оплачиваются отдельно и требуют времени на подготовку — скажите при брони, к какому часу нагреть, а цену на ваши даты уточнит хозяйка.</p>
+        </div>
         <div class="times"><span>Заезд <b>с 17:00</b></span><span>Выезд <b>до 15:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
@@ -386,7 +414,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
     <div class="tag reveal" data-n="03">как всё устроено</div>
     <h2 class="reveal">Продумано до мелочей</h2>
     <div class="grid-adv">
-      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3" stroke-linecap="round"/></svg><b>Заселение без встреч</b><p>Пришлём код и инструкцию — заезжайте в своё время, никого ждать не нужно.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3" stroke-linecap="round"/></svg><b>Заселение — как удобно вам</b><p>Можно и бесконтактно, без ожидания у ворот: все детали пришлём после брони.</p></div>
       <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 3l8 6v11H4V9l8-6z" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke-linejoin="round"/></svg><b>Дом только ваш</b><p>Никаких «соседних номеров»: весь дом и участок — одной компании.</p></div>
       <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg><b>Хозяйка на связи</b><p>Гуля отвечает быстро — гости пишут об этом в отзывах. Подскажет всё до и во время заезда.</p></div>
       <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 17V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9M4 17h16M4 17v2m16-2v2M7 11h4a2 2 0 0 1 2 2v1" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Постель и полотенца</b><p>Чистое бельё, полотенца и средства гигиены уже ждут — везите только настроение.</p></div>
@@ -430,10 +458,11 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
   <div class="wrap host">
     <div class="ph reveal"><img src="img/o2.jpg" alt="Терраса дома вечером, гирлянды" loading="lazy"></div>
     <div class="reveal">
-      <div class="tag" data-n="05">кто принимает гостей</div>
+      <div class="tag">кто принимает гостей</div>
       <h2>Это не сеть баз отдыха.<br>Это три дома одной хозяйки</h2>
-      <blockquote>«Я сама встречала каждого гостя, пока их не стало слишком много. Теперь заселение бесконтактное — но я всё так же на связи с утра до позднего вечера: подсказать, затопить баню к приезду, решить любой вопрос».</blockquote>
-      <div class="sig">— Гуля, хозяйка домов на Балтыме</div>
+      <p class="host-p">Хозяйку зовут Гуля, и в отзывах гости пишут про неё одно и то же: на связи, отвечает быстро, всё покажет и подскажет. Попросите натопить баню или чан к приезду — и к вашему часу всё будет горячим.</p>
+      <p class="host-p">Три дома — это её забота и её репутация. Поэтому в отзывах хозяйку хвалят не реже, чем баню.</p>
+      <a class="btn btn-solid" href="https://t.me/+79634439897" target="_blank" rel="noopener">Написать Гуле в Telegram</a>
     </div>
   </div>
 </section>
@@ -450,11 +479,11 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
       </details>
       <details>
         <summary>Баня и чан входят в стоимость?</summary>
-        <div class="a">Сауна в «Озёрном» — безлимитно и бесплатно. Русская баня на дровах, чан с тёплой водой, купель и бассейны оплачиваются отдельно: их готовят к вашему приезду. Скажите при брони — и к заезду всё будет горячим.</div>
+        <div class="a">Сауна в «Озёрном» — бесплатно и без лимита. Остальное готовится к вашему приезду и оплачивается отдельно, аренда почасовая: баня на дровах — 6 000 ₽ за 3 часа, банный чан — 5 000 ₽, бассейн — 1 500 ₽, можно позвать парильщика — 1 500 ₽. Для «Лесной усадьбы» цену на купель и бассейн уточняйте у хозяйки. Скажите при брони, к какому часу натопить — приедете к горячей бане.</div>
       </details>
       <details>
         <summary>Как проходит заселение?</summary>
-        <div class="a">Бесконтактно: после подтверждения брони пришлём адрес, код и короткую инструкцию. Приезжаете и заходите — встречать вас с ключами никто не заставит. Если что-то непонятно, хозяйка на связи.</div>
+        <div class="a">Как вам удобнее: можно бесконтактно — после подтверждения брони пришлём адрес и все инструкции, а можно с хозяйкой — она покажет дом и расскажет, как что работает. Договоритесь при брони.</div>
       </details>
       <details>
         <summary>Можно с детьми и животными?</summary>
