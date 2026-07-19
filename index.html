@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дома на Балтыме — аренда коттеджей посуточно с баней, чаном и бассейном | Верхняя Пышма, Екатеринбург</title>
+<meta name="description" content="Три коттеджа посуточно у озера Балтым, 15 км от Екатеринбурга. Своя баня, банный чан, бассейн, до 18 гостей. Бесконтактное заселение, можно с детьми и питомцами.">
+<meta property="og:title" content="Дома на Балтыме — свой дом у озера на выходные">
+<meta property="og:description" content="Три коттеджа с банями, чанами и бассейнами. 15 км от Екатеринбурга, заселение без встреч, до 18 гостей.">
+<meta property="og:image" content="img/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#372b11;        /* тёмный дуб */
+  --pine:#70815a;       /* хвоя */
+  --moss:#809f57;       /* мох */
+  --cream:#faf2e2;      /* сливки */
+  --sand:#f3f1e7;
+  --paper:#ede9de;
+  --ochre:#9b6922;      /* охра */
+  --leaf:#e8ebcf;
+  --serif:'Prata',serif;
+  --sans:'Golos Text',system-ui,sans-serif;
+  --r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;line-height:1.18}
+h2{font-size:clamp(28px,5.4vw,46px);letter-spacing:-.01em}
+h3{font-size:clamp(21px,3.4vw,27px)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+@media(min-width:900px){section{padding:104px 0}}
+
+/* метка секции — как нумерация в референсе */
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:18px}
+.tag::before{content:attr(data-n);font-family:var(--serif);font-size:15px;color:var(--moss);border:1px solid var(--moss);border-radius:50%;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center}
+.dark .tag{color:var(--leaf)}
+.dark .tag::before{color:var(--leaf);border-color:rgba(232,235,207,.5)}
+
+/* появление при скролле */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 30px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:0}
+.btn:active{transform:scale(.97)}
+.btn-solid{background:var(--pine);color:#fff;box-shadow:0 10px 26px rgba(55,43,17,.22)}
+.btn-solid:hover{background:var(--moss);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-ink:hover{background:#4a3a18;transform:translateY(-2px)}
+
+/* шапка */
+header{position:fixed;inset:0 0 auto;z-index:60;transition:background .35s,box-shadow .35s}
+header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1160px;margin:0 auto}
+header.scrolled{background:rgba(250,242,226,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(55,43,17,.08)}
+.logo{font-family:var(--serif);font-size:19px;color:#fff;text-decoration:none;letter-spacing:.02em;transition:color .35s}
+.logo span{color:var(--moss)}
+header.scrolled .logo{color:var(--ink)}
+nav.menu{display:none;gap:26px}
+nav.menu a{text-decoration:none;font-size:14px;font-weight:500;color:#fff;opacity:.9;transition:color .35s,opacity .2s}
+nav.menu a:hover{opacity:1}
+header.scrolled nav.menu a{color:var(--ink)}
+.head-cta{display:none}
+@media(min-width:860px){nav.menu{display:flex}.head-cta{display:inline-flex;padding:11px 22px;font-size:14px}}
+
+/* герой */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,24,8,.42) 0%,rgba(30,24,8,.18) 40%,rgba(30,24,8,.78) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:56px;width:100%}
+.hero .up{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hero .up::before{content:'';width:34px;height:1px;background:var(--moss)}
+@media(min-width:700px){.hero .up{font-size:13px;letter-spacing:.22em}}
+.hero h1{font-size:clamp(34px,7.4vw,72px);max-width:15ch;margin-bottom:18px;text-wrap:balance}
+.hero p.sub{max-width:52ch;font-size:clamp(16px,2.4vw,19px);color:rgba(255,255,255,.88);margin-bottom:30px}
+.hero .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;border-top:1px solid rgba(255,255,255,.25);padding-top:22px}
+.hero .stats b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,4vw,32px);display:block}
+.hero .stats span{font-size:13px;color:rgba(255,255,255,.75)}
+
+/* боли */
+.dark{background:var(--ink);color:var(--cream)}
+.pains{display:grid;gap:14px;margin-top:40px}
+@media(min-width:760px){.pains{grid-template-columns:repeat(2,1fr);gap:18px}}
+.pain{background:rgba(250,242,226,.06);border:1px solid rgba(250,242,226,.14);border-radius:var(--r);padding:26px}
+.pain b{font-family:var(--serif);font-weight:400;font-size:19px;display:block;margin-bottom:8px;color:#fff}
+.pain p{color:rgba(250,242,226,.75);font-size:15px}
+.dark h2 em{font-style:normal;color:var(--moss)}
+.answer{margin-top:44px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--moss);padding-left:20px;max-width:640px}
+.answer p{font-size:clamp(17px,2.6vw,21px);font-family:var(--serif);color:#fff}
+
+/* домики */
+.house{display:grid;gap:30px;margin-top:56px}
+.house+.house{margin-top:96px;padding-top:76px;border-top:1px solid rgba(55,43,17,.12)}
+@media(min-width:960px){.house{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:52px;align-items:start}}
+.gal{position:sticky;top:86px}
+.gal .main{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;cursor:zoom-in;position:relative;background:var(--paper)}
+.gal .main img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
+.gal .main:hover img{transform:scale(1.035)}
+.gal .main .zoom{position:absolute;right:14px;bottom:14px;background:rgba(30,24,8,.55);color:#fff;font-size:12.5px;padding:7px 13px;border-radius:999px;backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+.thumbs button{border:0;padding:0;border-radius:11px;overflow:hidden;cursor:pointer;aspect-ratio:1;opacity:.75;transition:opacity .2s,outline .2s;outline:2px solid transparent;outline-offset:2px;background:var(--paper)}
+.thumbs button img{width:100%;height:100%;object-fit:cover}
+.thumbs button.act{opacity:1;outline-color:var(--pine)}
+.house .num{font-family:var(--serif);font-size:15px;color:var(--ochre);letter-spacing:.18em;margin-bottom:10px}
+.house h3{font-size:clamp(26px,4.4vw,36px);margin-bottom:6px}
+.house .where{font-size:14px;color:var(--pine);font-weight:500;margin-bottom:18px;display:flex;align-items:center;gap:7px}
+.house p.story{color:#5a4b28;margin-bottom:24px;max-width:56ch}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(55,43,17,.12);border:1px solid rgba(55,43,17,.12);border-radius:16px;overflow:hidden;margin-bottom:22px}
+@media(min-width:480px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{background:var(--sand);padding:14px 12px;text-align:center}
+.facts b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.facts span{font-size:12px;color:#6b5a33}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chips li{list-style:none;background:var(--paper);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:500;color:#544625}
+.chips li.plus{background:var(--leaf);color:#485c2b}
+.house .times{font-size:14px;color:#6b5a33;margin-bottom:24px;display:flex;gap:22px;flex-wrap:wrap}
+.house .times b{color:var(--ink);font-weight:600}
+
+/* преимущества */
+.grid-adv{display:grid;gap:14px;margin-top:44px}
+@media(min-width:640px){.grid-adv{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.grid-adv{grid-template-columns:repeat(4,1fr);gap:18px}}
+.adv{background:#fff;border-radius:var(--r);padding:28px 24px;box-shadow:0 2px 14px rgba(55,43,17,.05)}
+.adv svg{width:34px;height:34px;stroke:var(--pine);margin-bottom:16px}
+.adv b{display:block;font-size:16.5px;margin-bottom:6px}
+.adv p{font-size:14px;color:#6b5a33}
+
+/* отзывы */
+.rev-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px}
+.rev-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(86%,360px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px 20px 20px;margin:0 -20px;scrollbar-width:none}
+.rev-scroll::-webkit-scrollbar{display:none}
+.rev{scroll-snap-align:start;background:#fff;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 14px rgba(55,43,17,.05);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.rev:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(55,43,17,.12)}
+.rev .stars{color:var(--ochre);letter-spacing:3px;font-size:14px}
+.rev p{font-size:14.5px;color:#4c3f1f;flex:1}
+.rev .who{display:flex;align-items:center;gap:12px}
+.rev .ava{width:42px;height:42px;border-radius:50%;background:var(--pine);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;flex-shrink:0}
+.rev .who b{font-size:14.5px;display:block}
+.rev .who span{font-size:12.5px;color:#8a7748}
+.avito-note{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:#6b5a33;background:var(--paper);padding:9px 16px;border-radius:999px}
+
+/* о хозяйке */
+.host{display:grid;gap:34px;align-items:center}
+@media(min-width:880px){.host{grid-template-columns:5fr 6fr;gap:64px}}
+.host .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+.host .ph img{width:100%;height:100%;object-fit:cover}
+.host blockquote{font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.5;margin:22px 0;color:#fff}
+.host .sig{color:var(--leaf);font-size:14px}
+
+/* faq */
+.faq{max-width:760px;margin:40px auto 0}
+.faq details{border-bottom:1px solid rgba(55,43,17,.14)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 4px;font-weight:600;font-size:clamp(15.5px,2.2vw,17.5px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--serif);font-size:26px;color:var(--pine);transition:transform .3s;flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 4px 22px;color:#5a4b28;font-size:15px;max-width:60ch}
+
+/* финальный CTA */
+.final{position:relative;color:#fff;text-align:center;overflow:hidden}
+.final img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final::after{content:'';position:absolute;inset:0;background:rgba(30,24,8,.72)}
+.final .wrap{position:relative;z-index:2}
+.final h2{font-size:clamp(30px,5.8vw,52px);max-width:18ch;margin:0 auto 16px}
+.final p{color:rgba(255,255,255,.85);max-width:46ch;margin:0 auto 32px}
+.final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* футер */
+footer{background:var(--ink);color:rgba(250,242,226,.8);padding:52px 0 120px;font-size:14px}
+@media(min-width:860px){footer{padding-bottom:52px}}
+footer .cols{display:grid;gap:30px;margin-bottom:40px}
+@media(min-width:760px){footer .cols{grid-template-columns:2fr 1fr 1fr}}
+footer .logo2{font-family:var(--serif);color:#fff;font-size:20px;margin-bottom:10px}
+footer .logo2 span{color:var(--moss)}
+footer a{color:var(--leaf);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer b{color:#fff;display:block;margin-bottom:12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+footer li{list-style:none;margin-bottom:9px}
+footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-size:12.5px;color:rgba(250,242,226,.5)}
+
+/* мобильная панель звонка */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:10px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(250,242,226,.94);backdrop-filter:blur(12px);box-shadow:0 -6px 24px rgba(55,43,17,.14)}
+.callbar .btn{flex:1;padding:14px 10px;font-size:15px}
+@media(min-width:860px){.callbar{display:none}}
+
+/* лайтбокс */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(24,19,7,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:min(96vw,1100px);max-height:82vh;object-fit:contain;border-radius:10px}
+.lb .cap{color:rgba(255,255,255,.75);font-size:14px;margin-top:14px}
+.lb button{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb button:hover{background:rgba(255,255,255,.22)}
+.lb .x{top:18px;right:18px}
+.lb .prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb .next{right:12px;top:50%;transform:translateY(-50%)}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="bar">
+    <a class="logo" href="#top">Дома <span>на Балтыме</span></a>
+    <nav class="menu">
+      <a href="#doma">Домики</a>
+      <a href="#plus">Что включено</a>
+      <a href="#otzyvy">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-solid head-cta" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Выбрать даты</a>
+  </div>
+</header>
+
+<!-- ГЕРОЙ -->
+<div class="hero" id="top">
+  <img class="bg" src="img/hero.jpg" alt="Вечерний бассейн с подсветкой у дома на Балтыме" fetchpriority="high">
+  <div class="wrap">
+    <div class="up">озеро Балтым · 15 км от Екатеринбурга</div>
+    <h1>Свой дом у озера. Баня, чан — и никого лишнего</h1>
+    <p class="sub">Три коттеджа посуточно в Новом Балтыме и Среднеуральске. Приезжаете — баня ваша, двор ваш, вечер ваш. Заселение без встреч, можно с детьми и питомцами.</p>
+    <div class="btns">
+      <a class="btn btn-solid" href="#doma">Выбрать дом</a>
+      <a class="btn btn-ghost" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Смотреть на Авито</a>
+    </div>
+    <div class="stats">
+      <div><b>3 дома</b><span>от компании на двоих до 18 гостей</span></div>
+      <div><b>Весь год</b><span>тёплые дома, зимой топим баню</span></div>
+      <div><b>25 минут</b><span>на машине от Екатеринбурга</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- БОЛИ -->
+<section class="dark" id="pochemu">
+  <div class="wrap">
+    <div class="tag reveal" data-n="01">почему сюда</div>
+    <h2 class="reveal">Отдых, который вечно <em>не складывается</em></h2>
+    <div class="pains">
+      <div class="pain reveal"><b>На базе отдыха — соседи за стенкой</b><p>Чужая музыка до утра, очередь в мангальную зону, баня по записи на 40 минут.</p></div>
+      <div class="pain reveal"><b>Дома собраться негде</b><p>Квартира маленькая, соседи снизу стучат по батарее уже в десять вечера.</p></div>
+      <div class="pain reveal"><b>Кафе закрывается — разговоры нет</b><p>Только сели, только распелись под гитару — «мы закрываемся, с вас счёт».</p></div>
+      <div class="pain reveal"><b>Хочется в настоящую баню</b><p>Не в сауну фитнес-клуба на час, а с паром, вениками и прыжком в прохладный бассейн.</p></div>
+    </div>
+    <div class="answer reveal">
+      <p>Поэтому мы сдаём дома целиком: ворота закрыли — и до 22:00 участок только ваш. Баня, чан, мангал, караоке — без очередей и посторонних.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ДОМИКИ -->
+<section id="doma">
+  <div class="wrap">
+    <div class="tag reveal" data-n="02">наши дома</div>
+    <h2 class="reveal">Три дома — три настроения</h2>
+    <p class="reveal" style="max-width:56ch;margin-top:14px;color:#5a4b28">Все три — рядом с озером Балтым, у каждого свой характер. Выбирайте под компанию и повод.</p>
+
+    <!-- ДОМ 1 -->
+    <div class="house" id="ozerny">
+      <div class="gal reveal" data-house="o">
+        <div class="main"><img src="img/o1.jpg" alt="Дом «Озёрный» — вечерний бассейн с подсветкой"><span class="zoom">смотреть фото</span></div>
+        <div class="thumbs">
+          <button class="act"><img src="img/o1.jpg" alt="Бассейн вечером"></button>
+          <button><img src="img/o2.jpg" alt="Терраса с гирляндами"></button>
+          <button><img src="img/o3.jpg" alt="Фасад с занавесями"></button>
+          <button><img src="img/o4.jpg" alt="Подвесное кресло на террасе"></button>
+          <button><img src="img/o5.jpg" alt="Парная"></button>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="num">Дом 01</div>
+        <h3>«Озёрный»</h3>
+        <div class="where">◦ Новый Балтым · до озера 2 минуты пешком</div>
+        <p class="story">Одноэтажный дом 2025 года, где вечером включают гирлянды на террасе, подсветку в бассейне — и уходить не хочется. Сауна прямо в доме, во дворе — чан с тёплой водой и русская баня на дровах. Утром — на озеро, оно в двух минутах.</p>
+        <div class="facts">
+          <div><b>90 м²</b><span>4 комнаты</span></div>
+          <div><b>до 15</b><span>гостей</span></div>
+          <div><b>7</b><span>двуспальных кроватей</span></div>
+          <div><b>6</b><span>мест парковки</span></div>
+        </div>
+        <ul class="chips">
+          <li>Сауна в доме</li><li>Терраса с гирляндами</li><li>Настольный бильярд</li><li>Караоке</li><li>Фотозона</li><li>Мангальная зона</li><li>Детская кроватка</li><li>Пандус, один этаж</li>
+          <li class="plus">+ чан с тёплой водой</li><li class="plus">+ баня на дровах</li><li class="plus">+ летний бассейн</li>
+        </ul>
+        <div class="times"><span>Заезд <b>с 16:00</b></span><span>Выезд <b>до 13:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
+        <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+      </div>
+    </div>
+
+    <!-- ДОМ 2 -->
+    <div class="house" id="kaminny">
+      <div class="gal reveal" data-house="k">
+        <div class="main"><img src="img/k1.jpg" alt="Дом «Каминный» — гостиная с камином"><span class="zoom">смотреть фото</span></div>
+        <div class="thumbs">
+          <button class="act"><img src="img/k1.jpg" alt="Гостиная с камином"></button>
+          <button><img src="img/k2.jpg" alt="Спальня с балдахином"></button>
+          <button><img src="img/k3.jpg" alt="Кресла и часы с боем"></button>
+          <button><img src="img/k4.jpg" alt="Зимняя веранда"></button>
+          <button><img src="img/k5.jpg" alt="Кухня"></button>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="num">Дом 02</div>
+        <h3>«Каминный»</h3>
+        <div class="where">◦ Новый Балтым · тихая улица, спокойные соседи</div>
+        <p class="story">Двухэтажный дом с характером: камин, кованые кровати с балдахинами, кресла как из бабушкиной гостиной — только новые. Тёплый пол, баня и чан во дворе, бассейн работает даже зимой. Дом для небольшой компании, семьи или выходных вдвоём.</p>
+        <div class="facts">
+          <div><b>85 м²</b><span>4 комнаты, 2 этажа</span></div>
+          <div><b>до 10</b><span>гостей</span></div>
+          <div><b>4</b><span>двуспальные кровати</span></div>
+          <div><b>5</b><span>мест парковки</span></div>
+        </div>
+        <ul class="chips">
+          <li>Камин</li><li>Тёплый пол</li><li>Кровати с балдахинами</li><li>Стиральная машина</li><li>Караоке</li><li>Мангал, решётка, шампуры</li><li>Сад во дворе</li>
+          <li class="plus">+ чан</li><li class="plus">+ баня</li><li class="plus">+ всесезонный бассейн</li>
+        </ul>
+        <div class="times"><span>Заезд <b>с 14:00</b></span><span>Выезд <b>до 12:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
+        <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+      </div>
+    </div>
+
+    <!-- ДОМ 3 -->
+    <div class="house" id="usadba">
+      <div class="gal reveal" data-house="u">
+        <div class="main"><img src="img/u1.jpg" alt="«Лесная усадьба» — двор с бассейном и купелью у леса"><span class="zoom">смотреть фото</span></div>
+        <div class="thumbs">
+          <button class="act"><img src="img/u1.jpg" alt="Двор с бассейном у леса"></button>
+          <button><img src="img/u2.jpg" alt="Купель во дворе"></button>
+          <button><img src="img/u3.jpg" alt="Столовая с длинным столом"></button>
+          <button><img src="img/u4.jpg" alt="Кикер и детская зона"></button>
+          <button><img src="img/u5.jpg" alt="Беседка с печью"></button>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="num">Дом 03</div>
+        <h3>«Лесная усадьба»</h3>
+        <div class="where">◦ Среднеуральск, у озера Балтым · лес прямо за забором</div>
+        <p class="story">Большой дом на 10 сотках для больших поводов: дни рождения, юбилеи, встречи одноклассников. Стол, за который садятся все 18 человек сразу, русская баня, бильярд, теннис и кикер — чтобы вечер не заканчивался. Дети носятся по участку, взрослые греются в купели.</p>
+        <div class="facts">
+          <div><b>190 м²</b><span>7 комнат, 2 этажа</span></div>
+          <div><b>до 18</b><span>гостей</span></div>
+          <div><b>11</b><span>кроватей</span></div>
+          <div><b>10 сот.</b><span>участок у леса</span></div>
+        </div>
+        <ul class="chips">
+          <li>Русская баня</li><li>Бильярд</li><li>Теннис</li><li>Кикер</li><li>Детская зона</li><li>Беседка с мангалом</li><li>Посудомоечная машина</li><li>2 санузла</li>
+          <li class="plus">+ купель</li><li class="plus">+ летний бассейн</li>
+        </ul>
+        <div class="times"><span>Заезд <b>с 17:00</b></span><span>Выезд <b>до 15:00</b></span><span>Залог <b>5 000 ₽</b></span></div>
+        <a class="btn btn-ink" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Даты и цена на Авито</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<section style="background:var(--sand)" id="plus">
+  <div class="wrap">
+    <div class="tag reveal" data-n="03">как всё устроено</div>
+    <h2 class="reveal">Продумано до мелочей</h2>
+    <div class="grid-adv">
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3" stroke-linecap="round"/></svg><b>Заселение без встреч</b><p>Пришлём код и инструкцию — заезжайте в своё время, никого ждать не нужно.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 3l8 6v11H4V9l8-6z" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke-linejoin="round"/></svg><b>Дом только ваш</b><p>Никаких «соседних номеров»: весь дом и участок — одной компании.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg><b>Хозяйка на связи</b><p>Гуля отвечает быстро — гости пишут об этом в отзывах. Подскажет всё до и во время заезда.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 17V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9M4 17h16M4 17v2m16-2v2M7 11h4a2 2 0 0 1 2 2v1" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Постель и полотенца</b><p>Чистое бельё, полотенца и средства гигиены уже ждут — везите только настроение.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M8 5a4 4 0 1 1 8 0M3 21c1.5-4 5-6 9-6s7.5 2 9 6" stroke-linecap="round"/><circle cx="12" cy="9" r="4"/></svg><b>С детьми и питомцами</b><p>Детская кроватка есть, хвостатых берите с собой — предупредите при брони.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M5 17h14M7 17V9l5-4 5 4v8M3 21h18" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Асфальт до ворот</b><p>Дорога чистится круглый год, парковка на участке — до 6 машин под охраняемым въездом.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 7h16v13H4zM4 11h16M9 4v3M15 4v3" stroke-linecap="round"/></svg><b>Отчётные документы</b><p>Для корпоративов и командировок оформим все документы для бухгалтерии.</p></div>
+      <div class="adv reveal"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 1 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><b>Озеро и лес рядом</b><p>Пляж, грибные места и тропы для прогулок — в шаговой доступности от всех домов.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section id="otzyvy">
+  <div class="wrap">
+    <div class="rev-head">
+      <div>
+        <div class="tag reveal" data-n="04">гости говорят</div>
+        <h2 class="reveal">Отзывы с Авито — как есть</h2>
+      </div>
+      <span class="avito-note reveal">✓ Профиль «Жильё проверено» на Авито</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rev-scroll">
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Прекрасно отдохнули большой компанией с детьми, уютно, чисто, всё работает. Футбол настольный и банный чан очень порадовали. Рекомендую!»</p><span class="who"><span class="ava">Н</span><span><b>Наталья</b><span>июнь 2026 · дом «Каминный»</span></span></span></a>
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Отлично отдохнули, всё шикарно. Есть чан, бассейн, сауна и мангальная зона. Хозяйка прекрасная, всё рассказала. С удовольствием приедем ещё 🤗»</p><span class="who"><span class="ava">С</span><span><b>Светлана</b><span>август 2025 · дом «Озёрный»</span></span></span></a>
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Всё прошло замечательно: дом тёплый, уютный, сауна горячая, купель протопили. Хозяева отзывчивые, понимающие и приятные люди.»</p><span class="who"><span class="ava">К</span><span><b>Кирилл</b><span>январь 2025 · дом «Озёрный»</span></span></span></a>
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Снимали дом для празднования дня рождения — всё устроило. Гуля всегда на связи, всё понравилось, рекомендую.»</p><span class="who"><span class="ava">Н</span><span><b>Наталья</b><span>июнь 2025 · «Лесная усадьба»</span></span></span></a>
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Все быстро и по делу, атмосфера классная, отдохнули на ура!»</p><span class="who"><span class="ava">А</span><span><b>Алексей</b><span>июнь 2025 · «Лесная усадьба»</span></span></span></a>
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Всё хорошо, в доме уютно, есть всё для комфортного отдыха! Отдыхали с детьми, им тоже понравилось.»</p><span class="who"><span class="ava">Д</span><span><b>Денис</b><span>май 2026 · дом «Каминный»</span></span></span></a>
+      <a class="rev reveal" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>«Хороший домик со всеми удобствами. Хозяйка очень вежливая. Советую всем.»</p><span class="who"><span class="ava">Х</span><span><b>Хуршед</b><span>январь 2026 · дом «Озёрный»</span></span></span></a>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:10px">
+      <a class="btn btn-solid" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Читать все отзывы на Авито</a>
+    </div>
+  </div>
+</section>
+
+<!-- О ХОЗЯЙКЕ -->
+<section class="dark">
+  <div class="wrap host">
+    <div class="ph reveal"><img src="img/o2.jpg" alt="Терраса дома вечером, гирлянды" loading="lazy"></div>
+    <div class="reveal">
+      <div class="tag" data-n="05">кто принимает гостей</div>
+      <h2>Это не сеть баз отдыха.<br>Это три дома одной хозяйки</h2>
+      <blockquote>«Я сама встречала каждого гостя, пока их не стало слишком много. Теперь заселение бесконтактное — но я всё так же на связи с утра до позднего вечера: подсказать, затопить баню к приезду, решить любой вопрос».</blockquote>
+      <div class="sig">— Гуля, хозяйка домов на Балтыме</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="tag reveal" data-n="06">частые вопросы</div>
+    <h2 class="reveal">Спрашивают перед бронью</h2>
+    <div class="faq reveal">
+      <details open>
+        <summary>Сколько стоят сутки?</summary>
+        <div class="a">Цена зависит от дома, дат и числа гостей — в будни ощутимо дешевле, чем в выходные и праздники. Точную цену на ваши даты смотрите на нашей странице на Авито или уточняйте по телефону. Залог за любой дом — 5 000 ₽, возвращается при выезде.</div>
+      </details>
+      <details>
+        <summary>Баня и чан входят в стоимость?</summary>
+        <div class="a">Сауна в «Озёрном» — безлимитно и бесплатно. Русская баня на дровах, чан с тёплой водой, купель и бассейны оплачиваются отдельно: их готовят к вашему приезду. Скажите при брони — и к заезду всё будет горячим.</div>
+      </details>
+      <details>
+        <summary>Как проходит заселение?</summary>
+        <div class="a">Бесконтактно: после подтверждения брони пришлём адрес, код и короткую инструкцию. Приезжаете и заходите — встречать вас с ключами никто не заставит. Если что-то непонятно, хозяйка на связи.</div>
+      </details>
+      <details>
+        <summary>Можно с детьми и животными?</summary>
+        <div class="a">Да, и с теми и с другими. В «Озёрном» есть детская кроватка, в «Усадьбе» — детская зона и кикер. Питомцев предупреждайте при брони: в «Каминном» доплата 500 ₽ за бронь, в «Усадьбе» — 500 ₽ в сутки.</div>
+      </details>
+      <details>
+        <summary>Можно шуметь и отмечать праздники?</summary>
+        <div class="a">Праздники — можно и нужно, дома для этого и созданы. Музыка и шум во дворе — до 22:00, дальше веселье переносится в дом: вокруг живут люди. Курение в домах запрещено, на улице — пожалуйста.</div>
+      </details>
+      <details>
+        <summary>Как добраться из Екатеринбурга?</summary>
+        <div class="a">На машине — 25–35 минут: через Верхнюю Пышму до посёлка Новый Балтым («Озёрный» и «Каминный») или по Серовскому тракту до Среднеуральска («Лесная усадьба»). Асфальт до самых ворот, рядом остановки общественного транспорта.</div>
+      </details>
+      <details>
+        <summary>Вы работаете с организациями?</summary>
+        <div class="a">Да. Для корпоративов и командировок готовим отчётные документы. «Лесная усадьба» вмещает до 18 человек — подходит для выездов отделом.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ФИНАЛЬНЫЙ CTA -->
+<section class="final" id="contacts">
+  <img class="bg" src="img/u1.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <h2 class="reveal">Выходные ближе, чем кажется</h2>
+    <p class="reveal">Полчаса от города — и вы у озера. Напишите, какие даты и сколько вас: подберём дом и затопим баню к приезду.</p>
+    <div class="btns reveal">
+      <a class="btn btn-solid" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Забронировать на Авито</a>
+      <a class="btn btn-ghost" href="tel:+79000000000">Позвонить</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="logo2">Дома <span>на Балтыме</span></div>
+        <p style="max-width:34ch">Три коттеджа посуточно у озера Балтым — для семей, компаний и праздников. Круглый год.</p>
+      </div>
+      <div>
+        <b>Адреса</b>
+        <ul>
+          <li>Свердловская обл., г.о. Верхняя Пышма, пос. Новый Балтым</li>
+          <li>Среднеуральск, СНТ «Мираж», 77</li>
+        </ul>
+      </div>
+      <div>
+        <b>Связь</b>
+        <ul>
+          <li><a href="tel:+79000000000">Позвонить хозяйке</a></li>
+          <li><a href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Мы на Авито ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">© <span id="yr"></span> Дома на Балтыме. Фотографии домов настоящие — что на сайте, то и на месте.</div>
+  </div>
+</footer>
+
+<!-- мобильная панель -->
+<div class="callbar">
+  <a class="btn btn-ink" href="tel:+79000000000">📞 Позвонить</a>
+  <a class="btn btn-solid" href="https://www.avito.ru/brands/i24329318/all?sellerId=e8baf83292f1009e535d3ffc2a5b7336" target="_blank" rel="noopener">Забронировать</a>
+</div>
+
+<!-- лайтбокс -->
+<div class="lb" id="lb" role="dialog" aria-label="Просмотр фотографий">
+  <button class="x" aria-label="Закрыть">✕</button>
+  <button class="prev" aria-label="Предыдущее фото">‹</button>
+  <img src="" alt="Фото дома">
+  <button class="next" aria-label="Следующее фото">›</button>
+  <div class="cap"></div>
+</div>
+
+<script>
+// ---- галереи домов ----
+const GALS = {
+  o: { name: 'Дом «Озёрный»', imgs: ['img/o1.jpg','img/o2.jpg','img/o3.jpg','img/o4.jpg','img/o5.jpg','img/o6.jpg'] },
+  k: { name: 'Дом «Каминный»', imgs: ['img/k1.jpg','img/k2.jpg','img/k3.jpg','img/k4.jpg','img/k5.jpg','img/k6.jpg'] },
+  u: { name: '«Лесная усадьба»', imgs: ['img/u1.jpg','img/u2.jpg','img/u3.jpg','img/u4.jpg','img/u5.jpg','img/u6.jpg'] }
+};
+
+document.querySelectorAll('.gal').forEach(gal => {
+  const key = gal.dataset.house;
+  const main = gal.querySelector('.main img');
+  const thumbs = [...gal.querySelectorAll('.thumbs button')];
+  thumbs.forEach((t, i) => t.addEventListener('click', () => {
+    thumbs.forEach(x => x.classList.remove('act'));
+    t.classList.add('act');
+    main.src = GALS[key].imgs[i];
+    gal.dataset.idx = i;
+  }));
+  gal.querySelector('.main').addEventListener('click', () => openLb(key, +(gal.dataset.idx || 0)));
+});
+
+// ---- лайтбокс ----
+const lb = document.getElementById('lb');
+const lbImg = lb.querySelector('img');
+const lbCap = lb.querySelector('.cap');
+let cur = { key: 'o', i: 0 };
+function openLb(key, i) { cur = { key, i }; showLb(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function showLb() {
+  const g = GALS[cur.key];
+  lbImg.src = g.imgs[cur.i];
+  lbCap.textContent = g.name + ' — фото ' + (cur.i + 1) + ' из ' + g.imgs.length;
+}
+function stepLb(d) { const g = GALS[cur.key]; cur.i = (cur.i + d + g.imgs.length) % g.imgs.length; showLb(); }
+function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+lb.querySelector('.x').addEventListener('click', closeLb);
+lb.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); stepLb(-1); });
+lb.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); stepLb(1); });
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') stepLb(-1);
+  if (e.key === 'ArrowRight') stepLb(1);
+});
+// свайп в лайтбоксе
+let tx = null;
+lb.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+lb.addEventListener('touchend', e => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 45) stepLb(dx > 0 ? -1 : 1);
+  tx = null;
+}, { passive: true });
+
+// ---- появление при скролле: IntersectionObserver + страховка ----
+const revealEls = new Set(document.querySelectorAll('.reveal'));
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) show(e.target);
+}), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+function show(el) { el.classList.add('on'); io.unobserve(el); revealEls.delete(el); }
+revealEls.forEach(el => io.observe(el));
+// страховка: если элемент уже в кадре (переход по якорю, старые браузеры) — показываем
+function sweep() {
+  revealEls.forEach(el => { if (el.getBoundingClientRect().top < innerHeight * 0.96) show(el); });
+}
+addEventListener('scroll', sweep, { passive: true });
+addEventListener('load', sweep);
+setTimeout(sweep, 400);
+
+// ---- шапка ----
+const hd = document.getElementById('hd');
+addEventListener('scroll', () => hd.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+// ---- аккордеон: открыт только один ----
+const faqs = document.querySelectorAll('.faq details');
+faqs.forEach(d => d.addEventListener('toggle', () => {
+  if (d.open) faqs.forEach(o => { if (o !== d) o.open = false; });
+}));
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// ленивые изображения вне первого экрана
+document.querySelectorAll('.house img, .thumbs img').forEach(i => i.loading = 'lazy');
+</script>
+</body>
+</html>
