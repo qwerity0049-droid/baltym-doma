@@ -124,7 +124,7 @@ nav.menu a:hover{opacity:1}
 .house{display:grid;gap:30px;margin-top:56px}
 .house+.house{margin-top:96px;padding-top:76px;border-top:1px solid rgba(55,43,17,.12)}
 @media(min-width:960px){.house{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:52px;align-items:start}}
-.gal{position:sticky;top:86px}
+@media(min-width:960px){.gal{position:sticky;top:86px}}
 .gal .main{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;cursor:zoom-in;position:relative;background:var(--paper)}
 .gal .main img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
 .gal .main:hover img{transform:scale(1.035)}
@@ -164,7 +164,7 @@ nav.menu a:hover{opacity:1}
 .atmo figure:nth-child(4n+1){aspect-ratio:4/4.4}
 .atmo figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
 .atmo figure:hover img{transform:scale(1.06)}
-.atmo figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(180deg,transparent,rgba(30,24,8,.78));color:#fff;font-family:var(--script);font-size:clamp(19px,2.6vw,24px);line-height:1.15}
+.atmo figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(180deg,transparent,rgba(30,24,8,.8));color:#fff;font-family:var(--serif);font-weight:700;font-size:clamp(13px,1.8vw,16px);text-transform:uppercase;letter-spacing:.04em;line-height:1.3}
 
 /* как добраться */
 .routes{display:grid;gap:16px;margin-top:44px}
@@ -487,14 +487,14 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
 <!-- ЧЕМ ЗАНЯТЬСЯ -->
 <section id="atmosfera" style="padding-top:0">
   <div class="wrap">
-    <div class="tag reveal">как здесь проходят выходные</div>
+    <div class="tag reveal">как здесь проходит отдых</div>
     <h2 class="reveal">Приехали — и время замедлилось</h2>
     <div class="atmo">
       <figure class="reveal" data-ai="0"><img src="img/a1.jpg" alt="Чан во дворе у леса летом" loading="lazy"><figcaption>забраться в горячий чан под открытым небом</figcaption></figure>
       <figure class="reveal" data-ai="1"><img src="img/a2.jpg" alt="Парная с ковшом" loading="lazy"><figcaption>попариться по-настоящему, с вениками</figcaption></figure>
       <figure class="reveal" data-ai="2"><img src="img/a3.jpg" alt="Зал с длинным столом" loading="lazy"><figcaption>усадить всех за один стол</figcaption></figure>
       <figure class="reveal" data-ai="3"><img src="img/a4.jpg" alt="Детская комната с игрушками" loading="lazy"><figcaption>уложить детей — и выдохнуть</figcaption></figure>
-      <figure class="reveal" data-ai="4"><img src="img/a5.jpg" alt="Заснеженная веранда с гирляндой" loading="lazy"><figcaption>приехать зимой — к натопленной бане</figcaption></figure>
+      <figure class="reveal" data-ai="4"><img src="img/o1.jpg" alt="Вечерний бассейн с подсветкой" loading="lazy"><figcaption>остаться у бассейна до темноты</figcaption></figure>
       <figure class="reveal" data-ai="5"><img src="img/a6.jpg" alt="Вечерняя терраса с гирляндами" loading="lazy"><figcaption>включить гирлянды и караоке — вечер ваш</figcaption></figure>
     </div>
   </div>
@@ -608,7 +608,7 @@ footer .fine{border-top:1px solid rgba(250,242,226,.15);padding-top:22px;font-si
       </details>
       <details>
         <summary>Баня и чан входят в стоимость?</summary>
-        <div class="a">Сауна в «Озёрном» — бесплатно и без лимита. Остальное готовится к вашему приезду и оплачивается отдельно, аренда почасовая: баня на дровах — 6 000 ₽ за 3 часа, банный чан — 5 000 ₽, бассейн — 1 500 ₽, можно позвать парильщика — 1 500 ₽. Для «Лесной усадьбы» цену на купель и бассейн уточняйте у хозяйки. Скажите при брони, к какому часу натопить — приедете к горячей бане.</div>
+        <div class="a">Баня, чан и бассейн готовятся к вашему приезду и оплачиваются отдельно, аренда почасовая: баня на дровах — 6 000 ₽ за 3 часа, банный чан — 5 000 ₽, бассейн — 1 500 ₽, можно позвать парильщика — 1 500 ₽. Для «Лесной усадьбы» цену на купель и бассейн уточняйте у хозяйки. Скажите при брони, к какому часу натопить — приедете к горячей бане.</div>
       </details>
       <details>
         <summary>Как проходит заселение?</summary>
@@ -698,7 +698,7 @@ const GALS = {
   o: { name: 'Дом «Озёрный»', imgs: ['img/o1.jpg','img/o2.jpg','img/o3.jpg','img/o4.jpg','img/o5.jpg','img/o6.jpg'] },
   k: { name: 'Дом «Каминный»', imgs: ['img/k1.jpg','img/k2.jpg','img/k3.jpg','img/k4.jpg','img/k5.jpg','img/k6.jpg'] },
   u: { name: '«Лесная усадьба»', imgs: ['img/u1.jpg','img/u2.jpg','img/u3.jpg','img/u4.jpg','img/u5.jpg','img/u6.jpg'] },
-  a: { name: 'Выходные на Балтыме', imgs: ['img/a1.jpg','img/a2.jpg','img/a3.jpg','img/a4.jpg','img/a5.jpg','img/a6.jpg'] }
+  a: { name: 'Отдых на Балтыме', imgs: ['img/a1.jpg','img/a2.jpg','img/a3.jpg','img/a4.jpg','img/o1.jpg','img/a6.jpg'] }
 };
 
 document.querySelectorAll('.atmo figure').forEach(f =>
